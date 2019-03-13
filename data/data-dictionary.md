@@ -13,4 +13,4 @@ data-dictionary
 **shot\_distance**: The distance to the basket (measured in feet).\
 **opponent**: The opponent NBA team being played.\
 **x**: the x-coordinate of where the shot occured, in inches.\
-**y**: the y-coordinate of where the shot occured, in inches.\
+**y**: the y-coordinate of where the shot occured, in inches.
