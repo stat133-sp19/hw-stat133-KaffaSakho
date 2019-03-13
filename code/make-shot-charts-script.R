@@ -81,5 +81,6 @@ gsw_shot_charts <- ggplot(data=single_table) + annotation_custom(court_image, -2
   ylim(-50,420) + 
   ggtitle('Shot Charts: GSW (2016 Season)') + theme_minimal() + facet_grid(. ~name)
 
-ggsave(filename="images/gsw_shot_charts.pdf", width=6.5,height=5)
+ggsave(filename="images/gsw_shot_charts.pdf", width=8,height=7)
+ggsave(filename="images/gsw_shot_charts.png", width=8,height=7)
 
