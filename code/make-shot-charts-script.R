@@ -19,13 +19,13 @@ iguodala <- mutate(iguodala, name = "Andre Iguodala")
 green <- read.csv("data/draymond-green.csv", stringsAsFactors=FALSE, colClasses=c("character","character","integer","integer","integer","integer","factor","character","character","double","character","double","double"))
 green <- mutate(green, name = "Draymond Green")
 
-durant <- read.csv("data/kevin-durant.csv", stringsAsFactors=FALSE, colClasses=c("character","character","integer","integer","integer","integer","factor","character","character","double","character","double","double"))
+durant <- read.csv("data/kevin-durant.csv", stringsAsFactors=FALSE, colClasses=c("character","character","integer","integer","integer","integer","factor", "character","character","double","character","double","double"))
 durant <- mutate(durant, name = "Kevin Durant")
 
-thompson <- read.csv("data/klay-thompson.csv", stringsAsFactors=FALSE, colClasses=c("character","character","integer","integer","integer","integer","factor","character","character","double","character","double","double"))
+thompson <- read.csv("data/klay-thompson.csv", stringsAsFactors=FALSE, colClasses=c("character","character","integer","integer","integer","integer","factor", "character","character","double","character","double","double"))
 thompson <- mutate(thompson, name = "Klay Thompson")
 
-curry <- read.csv("data/stephen-curry.csv", stringsAsFactors=FALSE, colClasses=c("character","character","integer","integer","integer","integer","factor","character","character","double","character","double","double"))
+curry <- read.csv("data/stephen-curry.csv", stringsAsFactors=FALSE, colClasses=c("character","character","integer","integer","integer","integer","factor", "character","character","double","character","double","double"))
 curry <- mutate(curry, name = "Stephen Curry")
 
 #Iguodala Shot Chart 
@@ -75,7 +75,11 @@ ggsave(filename="images/stephen_curry_shot_chart.pdf", width=6.5,height=5)
 
 #4.2) Facetted Shot Chart
 single_table <- rbind(iguodala,green,durant,thompson,curry)
-facetted_shot_chart <- ggpplot(data=single_table) annotation_custom(court_image, -250,250,-50,420) + 
+
+gsw_shot_charts <- ggplot(data=single_table) + annotation_custom(court_image, -250,250,-50,420) + 
   geom_point(aes(x=x,y=y, color=shot_made_flag)) + 
   ylim(-50,420) + 
-  ggtitle('Shot Charts: GSW (2016 Season)') + theme_minimal() + facet_grid(. ~)
+  ggtitle('Shot Charts: GSW (2016 Season)') + theme_minimal() + facet_grid(. ~name)
+
+ggsave(filename="images/gsw_shot_charts.pdf", width=6.5,height=5)
+
