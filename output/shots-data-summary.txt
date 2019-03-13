@@ -1,0 +1,89 @@
+  team_name          game_date             season         period      minutes_remaining
+ Length:4334        Length:4334        Min.   :2016   Min.   :1.000   Min.   : 0.000   
+ Class :character   Class :character   1st Qu.:2016   1st Qu.:1.000   1st Qu.: 2.000   
+ Mode  :character   Mode  :character   Median :2016   Median :2.000   Median : 5.000   
+                                       Mean   :2016   Mean   :2.351   Mean   : 5.412   
+                                       3rd Qu.:2016   3rd Qu.:3.000   3rd Qu.: 8.000   
+                                       Max.   :2016   Max.   :4.000   Max.   :11.000   
+ seconds_remaining shot_made_flag     action_type         shot_type         shot_distance  
+ Min.   : 0.00     Length:4334        Length:4334        Length:4334        Min.   : 0.00  
+ 1st Qu.:13.00     Class :character   Class :character   Class :character   1st Qu.: 2.25  
+ Median :29.00     Mode  :character   Mode  :character   Mode  :character   Median :19.00  
+ Mean   :28.60                                                              Mean   :15.58  
+ 3rd Qu.:43.75                                                              3rd Qu.:25.00  
+ Max.   :59.00                                                              Max.   :71.00  
+   opponent               x                 y                 name               minute    
+ Length:4334        Min.   :-248.000   Length:4334        Length:4334        Min.   : 1.0  
+ Class :character   1st Qu.: -56.000   Class :character   Class :character   1st Qu.:11.0  
+ Mode  :character   Median :   1.000   Mode  :character   Mode  :character   Median :23.0  
+                    Mean   :   7.746                                         Mean   :22.8  
+                    3rd Qu.:  95.500                                         3rd Qu.:33.0  
+                    Max.   : 246.000                                         Max.   :48.0  
+NULL
+NULL
+              team_name game_date season period minutes_remaining seconds_remaining
+1 Golden State Warriors   3/24/17   2016      3                 2                35
+2 Golden State Warriors   11/3/16   2016      2                10                51
+3 Golden State Warriors  10/25/16   2016      2                 0                 6
+4 Golden State Warriors   11/3/16   2016      2                11                10
+5 Golden State Warriors    1/8/17   2016      4                 0                32
+6 Golden State Warriors   3/16/17   2016      3                 5                30
+  shot_made_flag          action_type      shot_type shot_distance
+1              n  Alley Oop Dunk Shot 2PT Field Goal             0
+2              n  Alley Oop Dunk Shot 2PT Field Goal             1
+3              y  Alley Oop Dunk Shot 2PT Field Goal             0
+4              n Alley Oop Layup shot 2PT Field Goal             1
+5              y    Cutting Dunk Shot 2PT Field Goal             0
+6              y    Cutting Dunk Shot 2PT Field Goal             0
+               opponent   x  y
+1      Sacramento Kings   0  1
+2 Oklahoma City Thunder -12 13
+3     San Antonio Spurs   0  1
+4 Oklahoma City Thunder  -1 11
+5      Sacramento Kings   0  1
+6         Orlando Magic   0  1
+[1] 371  13
+[1] "list"
+              team_name game_date season period minutes_remaining seconds_remaining shot_made_flag          action_type
+1 Golden State Warriors   3/24/17   2016      3                 2                35              n  Alley Oop Dunk Shot
+2 Golden State Warriors   11/3/16   2016      2                10                51              n  Alley Oop Dunk Shot
+3 Golden State Warriors  10/25/16   2016      2                 0                 6              y  Alley Oop Dunk Shot
+4 Golden State Warriors   11/3/16   2016      2                11                10              n Alley Oop Layup shot
+5 Golden State Warriors    1/8/17   2016      4                 0                32              y    Cutting Dunk Shot
+6 Golden State Warriors   3/16/17   2016      3                 5                30              y    Cutting Dunk Shot
+       shot_type shot_distance              opponent   x  y
+1 2PT Field Goal             0      Sacramento Kings   0  1
+2 2PT Field Goal             1 Oklahoma City Thunder -12 13
+3 2PT Field Goal             0     San Antonio Spurs   0  1
+4 2PT Field Goal             1 Oklahoma City Thunder  -1 11
+5 2PT Field Goal             0      Sacramento Kings   0  1
+6 2PT Field Goal             0         Orlando Magic   0  1
+              team_name game_date season period minutes_remaining seconds_remaining shot_made_flag          action_type
+1 Golden State Warriors   3/24/17   2016      3                 2                35              n  Alley Oop Dunk Shot
+2 Golden State Warriors   11/3/16   2016      2                10                51              n  Alley Oop Dunk Shot
+3 Golden State Warriors  10/25/16   2016      2                 0                 6              y  Alley Oop Dunk Shot
+4 Golden State Warriors   11/3/16   2016      2                11                10              n Alley Oop Layup shot
+5 Golden State Warriors    1/8/17   2016      4                 0                32              y    Cutting Dunk Shot
+6 Golden State Warriors   3/16/17   2016      3                 5                30              y    Cutting Dunk Shot
+       shot_type shot_distance              opponent   x  y
+1 2PT Field Goal             0      Sacramento Kings   0  1
+2 2PT Field Goal             1 Oklahoma City Thunder -12 13
+3 2PT Field Goal             0     San Antonio Spurs   0  1
+4 2PT Field Goal             1 Oklahoma City Thunder  -1 11
+5 2PT Field Goal             0      Sacramento Kings   0  1
+6 2PT Field Goal             0         Orlando Magic   0  1
+[1] "/Users/AKaffa/workout01"
+              team_name game_date season period minutes_remaining seconds_remaining shot_made_flag          action_type
+1 Golden State Warriors   3/24/17   2016      3                 2                35              n  Alley Oop Dunk Shot
+2 Golden State Warriors   11/3/16   2016      2                10                51              n  Alley Oop Dunk Shot
+3 Golden State Warriors  10/25/16   2016      2                 0                 6              y  Alley Oop Dunk Shot
+4 Golden State Warriors   11/3/16   2016      2                11                10              n Alley Oop Layup shot
+5 Golden State Warriors    1/8/17   2016      4                 0                32              y    Cutting Dunk Shot
+6 Golden State Warriors   3/16/17   2016      3                 5                30              y    Cutting Dunk Shot
+       shot_type shot_distance              opponent   x  y
+1 2PT Field Goal             0      Sacramento Kings   0  1
+2 2PT Field Goal             1 Oklahoma City Thunder -12 13
+3 2PT Field Goal             0     San Antonio Spurs   0  1
+4 2PT Field Goal             1 Oklahoma City Thunder  -1 11
+5 2PT Field Goal             0      Sacramento Kings   0  1
+6 2PT Field Goal             0         Orlando Magic   0  1
