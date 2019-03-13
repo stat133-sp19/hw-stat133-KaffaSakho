@@ -4,27 +4,27 @@
   #output(s):
   
     library(dplyr)
-  getwd()
-  setwd("/Users/AKaffa/workout01")
+  
+  setwd("/Users/AKaffa/Desktop/workout01")
   
   #Read Iguodala's Data Set 
-  iguodala <- read.csv("data/andre-iguodala.csv", stringsAsFactors=FALSE, colClasses=c("character","character","integer","integer","integer","integer","factor", "character","character","double","character","double","double"))
+  iguodala <- read.csv("data/andre-iguodala.csv", stringsAsFactors=FALSE, colClasses=c("character","character","integer","integer","integer","integer","character", "character","character","double","character","double","double"), sep=",")
   iguodala <- mutate(iguodala, name = "Andre Iguodala")
   
   #Read Green's Data Set 
-  green <- read.csv("data/draymond-green.csv", stringsAsFactors=FALSE, colClasses=c("character","character","integer","integer","integer","integer","factor", "character","character","double","character","double","double"))
+  green <- read.csv("data/draymond-green.csv", stringsAsFactors=FALSE, colClasses=c("character","character","integer","integer","integer","integer","character", "character","character","double","character","double","double"), sep=",")
   green <- mutate(green, name = "Draymond Green")
   
   #Read Durant Data Set 
-  durant <- read.csv("data/kevin-durant.csv", stringsAsFactors=FALSE, colClasses=c("character","character","integer","integer","integer","integer","factor", "character","character","double","character","double","double"))
+  durant <- read.csv("data/kevin-durant.csv", stringsAsFactors=FALSE, colClasses=c("character","character","integer","integer","integer","integer","character", "character","character","double","character","double","double"), sep=",")
   durant <- mutate(durant, name = "Kevin Durant")
   
   #Read Thompson Data Set 
-  thompson <- read.csv("data/klay-thompson.csv", stringsAsFactors=FALSE, colClasses=c("character","character","integer","integer","integer","integer","factor", "character","character","double","character","double","double"))
+  thompson <- read.csv("data/klay-thompson.csv", stringsAsFactors=FALSE, colClasses=c("character","character","integer","integer","integer","integer","character", "character","character","double","character","double","double"), sep=",")
   thompson <- mutate(thompson, name = "Klay Thompson")
   
   #Read Curry's Data Set 
-  curry <- read.csv("data/stephen-curry.csv", stringsAsFactors=FALSE, colClasses=c("character","character","integer","integer","integer","integer","factor", "character","character","double","character","double","double"))
+  curry <- read.csv("data/stephen-curry.csv", stringsAsFactors=FALSE, colClasses=c("character","character","integer","integer","integer","integer","character", "character","character","double","character","double","double"), sep=",")
   curry <- mutate(curry, name = "Stephen Curry")
   
   #Changing Shot_made_flag
