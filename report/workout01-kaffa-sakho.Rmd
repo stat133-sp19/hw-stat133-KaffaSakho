@@ -1,9 +1,25 @@
 ---
 title: "workout01-kaffa-sakho"
-output: html_document
+output: github_document
 ---
 
-```{r setup, include=FALSE}
+#5.1) Effective Shooting Percentage
+
+#Importing the Shots Data
+```{r}
+setwd("/Users/AKaffa/Desktop/workout01")
+library(dplyr)
+esp <- read.csv("data/shots-data.csv", header = TRUE, stringsAsFactors = FALSE)
+esp
+```
+
+#Shortening the Data Frame to Work with
+```{r}
+esp_2pt <- select(esp, name, shot_made_flag, shot_type)
+```
+
+#2PT Effective Shooting % by Player: 
+```{r}
 
 ```
 
