@@ -49,7 +49,7 @@ ggsave(filename="images/draymond_green_shot_chart.pdf", width=6.5,height=5)
 #Durant Shot Chart
 kevin_durant_shot_chart <- ggplot(data=durant)+ 
   annotation_custom(court_image, -250,250,-50,420) + 
-  geom_point(aes(x=x,y=y, color=shot_made_flag)) + 
+  geom_point(aes(x=x,y=y, color=shot_made_flag, alpha=)) + 
   ylim(-50,420) + 
   ggtitle('Shot Chart: Kevin Durant (2016 Season)') + theme_minimal() 
 
@@ -58,7 +58,7 @@ ggsave(filename="images/kevin_durant_shot_chart.pdf", width=6.5,height=5)
 #Thompson Shot Chart
 klay_thompson_shot_chart <- ggplot(data=thompson)+ 
   annotation_custom(court_image, -250,250,-50,420) + 
-  geom_point(aes(x=x,y=y, color=shot_made_flag)) + 
+  geom_point(aes(x=x,y=y, color=shot_made_flag, alpha=factor(period))) + 
   ylim(-50,420) + 
   ggtitle('Shot Chart: Klay Thompson (2016 Season)') + theme_minimal() 
 
@@ -67,7 +67,7 @@ ggsave(filename="images/klay_thompson_shot_chart.pdf", width=6.5,height=5)
 #Curry Shot Chart
 stephen_curry_shot_chart <- ggplot(data=curry)+ 
   annotation_custom(court_image, -250,250,-50,420) + 
-  geom_point(aes(x=x,y=y, color=shot_made_flag, size=3)) + 
+  geom_point(aes(x=x,y=y, color=shot_made_flag, alpha=factor(period))) + 
   ylim(-50,420) + 
   ggtitle('Shot Chart: Stephen Curry (2016 Season)') + theme_minimal() 
 
@@ -77,7 +77,7 @@ ggsave(filename="images/stephen_curry_shot_chart.pdf", width=6.5,height=5)
 single_table <- rbind(iguodala,green,durant,thompson,curry)
 
 gsw_shot_charts <- ggplot(data=single_table) + annotation_custom(court_image, -250,250,-50,420) + 
-  geom_point(aes(x=x,y=y, color=shot_made_flag, size=4)) + 
+  geom_point(aes(x=x,y=y, color=shot_made_flag, shape = shot_made_flag)) + 
   ylim(-50,420) + 
   ggtitle('Shot Charts: GSW (2016 Season)') + theme_minimal() + facet_grid(. ~name)
 
