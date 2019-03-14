@@ -7,6 +7,7 @@ output: github_document
 
 #Importing the Shots Data
 ```{r}
+getwd()
 setwd("/Users/AKaffa/Desktop/workout01")
 library(dplyr)
 esp <- read.csv("data/shots-data.csv", header = TRUE, row.names=1)
@@ -37,20 +38,46 @@ esp_overall <- arrange(esp_overall, desc(perc_made))
 #Introduction/Motivation 
 
 ![](https://clutchpoints.com/wp-content/uploads/2017/01/Stephen-Curry-Draymond-Green-Kevin-Durant-Klay-Thompson-Andre-Iguodala-warriors-1024x532.jpg)
-
+The Strength in the Numbers
 
 The 2016-17 NBA season was undoubtedly the most dominant season for the Golden State Warriors. According to Fox Sports, following the 2016-17 season it was high time to see the Warriors as the greatest team of all time. The season was particularly the stage for five Warriors players to shine with their unprecedented shot statistics: the newly joined Kevin Durant, Draymond Green, Klay Thompson, Stephen Curry and Andre Iguodala. The purpose of this report is to analyze the shot statistics of these five players as a way to understand how they led GSW to its championship title. Demystifying shot statistics of the top Warriors players does not only help acknowledge their remarkable performance but also helps identify their strength and areas of growth in order to understand how the greatest of all time has gained and plan to keep its title. 
 
 #Background 
 
-Since Kevin Durant joined the warriors in the 2015 season, the quintuple: Curry, Iguodala, Thompson, Durant and Green is the usual starting lineup; they have contributed greatly in the success of the warriors this season. Steph Curry is the point-guard prodigee for the Warriors, he is known for his great 3pts record. Andre Iguodala is a shooting guard and small forward for GSW; he is known as the defensive swingman of the team. Klay Thompson is a shoot guard for the warriors and splash brother of Curry, together they make the most fearful pair when it comes to 3pt field goals. Finally, Draymond Green 
+Since Kevin Durant joined the warriors in the 2016 season, the quintuple: Curry, Iguodala, Thompson, Durant and Green make the usual starting lineup; they have contributed greatly in the success of the warriors this season. Steph Curry is the point-guard prodigee for the Warriors, he is known for his great 3pts record. Andre Iguodala is a shooting guard and small forward for GSW; he is known as the defensive swingman of the team. Klay Thompson is a shoot guard for the warriors and splash brother of Curry, together they make the most fearful pair when it comes to 3pt field goals. Finally, Draymond Green is the power forward of the warriors and won the NBA Defensive Player of the Year in 2016. One of the main goals of this article is to show that the warriors famous "Strength in Numbers" slogan lies in the diversity of strengths in shots across its 5 starters (e.g consistency in shots across periods, distance of successful shots, percentage of successful shots, etc). 
 
-#Data
+#Data & Analysis 
+The summary of the aggregated shot statistics of all 5 players attest of the immense capacity of the Warriors to shoot long shots with an average shot distance of 15.58 inches which is greater than the NBA average shot distance of the 2015-2016 season (12.86 inches). 
+
+```{r}
+setwd("/Users/AKaffa/Desktop/workout01")
+esp <- read.csv("data/shots-data.csv", header = TRUE, row.names=1)
+(summary(esp))
+```
+![](/Users/AKaffa/Desktop/summary_distance.png)
+
+Not only are the starting lineup not scared to shoot far from the basket, they all make at least 50% of their 2pt shots. Andre Iguodala has the highest the percentage of succesful 2 pts shots although he makes 1/3 less shots and 1/3 less successful 2 pt shots than Kevin Durant who is ranks right behind Iguodala. Therefore, if frequency of shots are taken into account, Kevin Durant is certainly the king of 2 pts. 
+
+```{r}
+esp_2pt <- summarise(group_by(filter(esp, shot_type == "2PT Field Goal"), name), total = n(), made=length(shot_made_flag[shot_made_flag == "shot_yes"]))
+esp_2pt <- mutate(esp_2pt, perc_made= made/total)
+esp_2pt <- arrange(esp_2pt, desc(perc_made))
+esp_2pt
+```
+
+When it comes to 3pt shots 
+
+```{r}
+esp_3pt <- summarise(group_by(filter(esp, shot_type == "3PT Field Goal"), name), total = n(), made=length(shot_made_flag[shot_made_flag == "shot_yes"]))
+esp_3pt <- mutate(esp_3pt, perc_made= made/total)
+esp_3pt <- arrange(esp_3pt, desc(perc_made))
+```
 
 
-#Analysis 
 #Discussion
 #Conclusions 
 #References 
 foxsports.com: 5 reasons the golden state warriors are the greatest team of all time. 
 https://www.basketball-reference.com/players/i/iguodan01.html
+http://www.nbaminer.com/shot-distances/
+https://stats.nba.com/players/shots-shotclock/?Season=2016-17&SeasonType=Regular%20Season&sort=FG2_PCT&dir=1&ShotClockRange=22-18%20Very%20Early&PerMode=Totals
