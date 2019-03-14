@@ -65,19 +65,37 @@ esp_2pt <- arrange(esp_2pt, desc(perc_made))
 esp_2pt
 ```
 
-When it comes to 3pt shots 
+When it comes to 3pt shots, Klay Thompson leads the Warriors with a percentage shot of 0.42. While Curry attempted significantly more shots than Thompson, there was no equally big difference in the number of shots he made compared to Thompson. That explains why Curry was ranked as the top 3pt field scorer in the 2016 season followed by Klay Thompson in 2nd place- according to the statistics from the NBA Statistics website. 
 
 ```{r}
 esp_3pt <- summarise(group_by(filter(esp, shot_type == "3PT Field Goal"), name), total = n(), made=length(shot_made_flag[shot_made_flag == "shot_yes"]))
 esp_3pt <- mutate(esp_3pt, perc_made= made/total)
 esp_3pt <- arrange(esp_3pt, desc(perc_made))
+esp_3pt
 ```
 
+Overall, Kevin Durant has the highest percentage of successful shots.
 
-#Discussion
+```{r}
+esp_overall <- summarise(group_by(esp, name), total = n(), made=length(shot_made_flag[shot_made_flag == "shot_yes"]))
+esp_overall <- mutate(esp_overall, perc_made= made/total)
+esp_overall <- arrange(esp_overall, desc(perc_made))
+esp_overall
+```
+
+The results mentioned above are further supported by the facetted charts of the shot statistics of the players. Although Stephen Curry appears to make the most shots and also the furthest shots (both successful and unsuccessful). Kevin Durant clearly has more even distribution of successful on unsuccesful shots. Additionally, Kevin Durant's and Klay Thompson's shots are more concentrated between the 2pt and 3pt lines compared to Curry whose shots seem to be dragging towards the opponent part of the court. That is the reason why he has the furthest succesful shots among all the five players. Iguodala seems to have a safer strategy as he makes the least shots out of everyone and his percentage of succesful shot is more even. Surprisingly it appears that most shots that Draymond make are actually further from the basket than the ones he misses.  
+
+![](/Users/AKaffa/Desktop/workout01/images/gsw_shot_charts.png)
+
+Looking at Klay Thompson's chart, which highlights which period a shot was made. We can see that compared to the rest, he makes most of the shots in the last periods. He is the most consistent shooter across periods.
+
 #Conclusions 
+
+In conclusion, the five players all display different strengths in terms of shooting with slight differences in their amount of strenght compared to their teammates. That explains their great "Strength in Numbers". While Kevin Durant handles the 2pts, Klay and Curry are on the 3pts while Green manages the outside of the basket pts and Iguodala plays the safe shots. 
+
 #References 
 foxsports.com: 5 reasons the golden state warriors are the greatest team of all time. 
 https://www.basketball-reference.com/players/i/iguodan01.html
 http://www.nbaminer.com/shot-distances/
 https://stats.nba.com/players/shots-shotclock/?Season=2016-17&SeasonType=Regular%20Season&sort=FG2_PCT&dir=1&ShotClockRange=22-18%20Very%20Early&PerMode=Totals
+http://www.espn.com/nba/statistics/_/year/2016
