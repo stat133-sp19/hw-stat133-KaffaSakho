@@ -9,17 +9,18 @@ output: github_document
 ```{r}
 setwd("/Users/AKaffa/Desktop/workout01")
 library(dplyr)
-esp <- read.csv("data/shots-data.csv", header = TRUE, stringsAsFactors = FALSE)
-esp
+esp <- read.csv("data/shots-data.csv", header = TRUE, row.names=1)
 ```
 
 #Shortening the Data Frame to Work with
 ```{r}
-esp_2pt <- select(esp, name, shot_made_flag, shot_type)
+esp_2pt <- filter(esp, shot_type == "2PT Field Goal")
+esp_3pt <- filter(esp, shot_type == "3PT Field Goal")
 ```
 
 #2PT Effective Shooting % by Player: 
 ```{r}
-
+esp_2pt <- summarise(group_by(filter(esp, shot_type == "2PT Field Goal"), name), total = n(), made=length(shot_made_flag[shot_made_flag == "shot_yes"]))
 ```
 
+#Introduction
