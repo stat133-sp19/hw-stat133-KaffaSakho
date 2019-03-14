@@ -60,9 +60,9 @@
   
   #Stack the Tables
   single_table <- rbind(iguodala,green,durant,thompson,curry)
+  write.csv(single_table, file = 'data/shots-data.csv', row.names=TRUE)
   sink(file = 'data/shots-data.csv')
-  (single_table)
-  sink()
+  (write.csv(single_table, file = 'data/shots-data.csv'))
   
   sink(file = 'output/shots-data-summary.txt')
   summary(single_table)
