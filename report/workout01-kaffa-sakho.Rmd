@@ -35,3 +35,19 @@ esp_overall <- arrange(esp_overall, desc(perc_made))
 
 
 #Introduction
+
+The 2016-17 NBA season was undoubtedly the most dominant season for the Golden State Warriors. According to Fox Sports, following the 2016-17 season it was high time to see the Warriors as the greatest team of all time. The season was particularly the stage for five Warriors players to shine with their unprecedented shot statistics: the newly joined Kevin Durant, Draymond Green, Klay Thompson, Stephen Curry and Andre Iguodala. 
+
+#Motivation 
+
+The purpose of this report is to analyze the shot statistics of these five players as a way to understand how they led GSW to its championship title. Demystifying shot statistics of the top Warriors players does not only help acknowledge their remarkable performance but also helps identify their strength and areas of growth in order to understand how the greatest of all time has and plan to keep its title. 
+
+#Background
+
+
+#Data
+#Analysis 
+#Discussion
+#Conclusions 
+#References 
+foxsports.com: 5 reasons the golden state warriors are the greatest team of all time. 
