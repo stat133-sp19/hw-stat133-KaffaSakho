@@ -3,8 +3,6 @@ title: "data-dictionary"
 output: github_document
 ---
 
-class, values, units.
-
 **team_name**: A character vector that describes the name of player's team. Example: "Golden State Warriors"\
 **game_date**: A character vector  that describes the date the game took place in the form MM/DD/YY . The range of the date falls in the 2016 basketball season. Example: 3/24/17\
 **season**: An integer vector that describes the year the game took place. NBA games take place during yearly seasons. The only possible value here is 2016 since the data represents statistics from the 2016 season.\
