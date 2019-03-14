@@ -21,9 +21,17 @@ esp_2pt <- arrange(esp_2pt, desc(perc_made))
 
 #3PT Effective Shooting % by Player: 
 ```{r}
-esp_2pt <- summarise(group_by(filter(esp, shot_type == "2PT Field Goal"), name), total = n(), made=length(shot_made_flag[shot_made_flag == "shot_yes"]))
-esp_2pt <- mutate(esp_2pt, perc_made= made/total)
-esp_2pt <- arrange(esp_2pt, desc(perc_made))
+esp_3pt <- summarise(group_by(filter(esp, shot_type == "3PT Field Goal"), name), total = n(), made=length(shot_made_flag[shot_made_flag == "shot_yes"]))
+esp_3pt <- mutate(esp_3pt, perc_made= made/total)
+esp_3pt <- arrange(esp_3pt, desc(perc_made))
 ```
+
+#Overall Effective Shooting % by Player: 
+```{r}
+esp_overall <- summarise(group_by(esp, name), total = n(), made=length(shot_made_flag[shot_made_flag == "shot_yes"]))
+esp_overall <- mutate(esp_overall, perc_made= made/total)
+esp_overall <- arrange(esp_overall, desc(perc_made))
+```
+
 
 #Introduction
