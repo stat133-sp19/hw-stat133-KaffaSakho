@@ -124,8 +124,6 @@ esp <- read.csv("data/shots-data.csv", header = TRUE, row.names=1)
     ##                        Max.   :48.0  
     ## 
 
-![](/Users/AKaffa/Desktop/summary_distance.png)
-
 Not only are the starting lineup not scared to shoot far from the basket, they all make at least 50% of their 2pt shots. Andre Iguodala has the highest the percentage of succesful 2 pts shots although he makes 1/3 less shots and 1/3 less successful 2 pt shots than Kevin Durant who is ranks right behind Iguodala. Therefore, if frequency of shots are taken into account, Kevin Durant is certainly the king of 2 pts.
 
 ``` r
@@ -182,16 +180,22 @@ esp_overall
 
 The results mentioned above are further supported by the facetted charts of the shot statistics of the players. Although Stephen Curry appears to make the most shots and also the furthest shots (both successful and unsuccessful). Kevin Durant clearly has more even distribution of successful on unsuccesful shots. Additionally, Kevin Durant's and Klay Thompson's shots are more concentrated between the 2pt and 3pt lines compared to Curry whose shots seem to be dragging towards the opponent part of the court. That is the reason why he has the furthest succesful shots among all the five players. Iguodala seems to have a safer strategy as he makes the least shots out of everyone and his percentage of succesful shot is more even. Surprisingly it appears that most shots that Draymond make are actually further from the basket than the ones he misses.
 
-![](/Users/AKaffa/Desktop/workout01/images/gsw_shot_charts.png)
+![](https://raw.githubusercontent.com/stat133-sp19/hw-stat133-KaffaSakho/master/images/gsw_shot_charts.png)
 
-Looking at Klay Thompson's chart, which highlights which period a shot was made. We can see that compared to the rest, he makes most of the shots in the last periods. He is the most consistent shooter across periods.
+Looking at Klay Thompson's chart(link below), which highlights which period a shot was made. We can see that compared to the rest, he makes most of the shots in the last periods. He is the most consistent shooter across periods.
+
+(<https://github.com/stat133-sp19/hw-stat133-KaffaSakho/blob/master/images/klay_thompson_shot_chart.pdf>)
 
 Conclusions
 ===========
 
-In conclusion, the five players all display different strengths in terms of shooting with slight differences in their amount of strenght compared to their teammates. That explains their great "Strength in Numbers". While Kevin Durant handles the 2pts, Klay and Curry are on the 3pts while Green manages the outside of the basket pts and Iguodala plays the safe shots.
+In conclusion, the five players all display different strengths in terms of shooting with slight differences in their amount of strength compared to their teammates. That explains their great "Strength in Numbers". While Kevin Durant handles the 2pts, Klay and Curry are on the 3pts while Green manages the outside of the basket pts and Iguodala plays the safe shots.
 
 References
 ==========
 
-foxsports.com: 5 reasons the golden state warriors are the greatest team of all time. <https://www.basketball-reference.com/players/i/iguodan01.html> <http://www.nbaminer.com/shot-distances/> <https://stats.nba.com/players/shots-shotclock/?Season=2016-17&SeasonType=Regular%20Season&sort=FG2_PCT&dir=1&ShotClockRange=22-18%20Very%20Early&PerMode=Totals> <http://www.espn.com/nba/statistics/_/year/2016>
+*Five Reasons Why the Golden State Warriors are the Greatest Team of All Time*: <https://www.foxsports.com/nba/story/5-reasons-the-2016-17-golden-state-warriors-are-the-greatest-team-of-all-time-061517>
+*Basketball Reference: Andre Iguodala*: <https://www.basketball-reference.com/players/i/iguodan01.html>
+*Shot Distance Statistics*: <http://www.nbaminer.com/shot-distances/>
+*Players Shot Dashboard Shotclock*: <https://stats.nba.com/players/shots-shotclock/?Season=2016-17&SeasonType=Regular%20Season&sort=FG2_PCT&dir=1&ShotClockRange=22-18%20Very%20Early&PerMode=Totals>
+*NBA 2016 Statistics*: <http://www.espn.com/nba/statistics/_/year/2016>
