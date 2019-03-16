@@ -1,7 +1,7 @@
-  #title: "Data Preparation"
-  #description: "This document contains all the R code used to create a csv data file containing the required variables that will be used in the visualisation phase."
-  #input(s): "Andre Iguodala Data Set, Draymond Green Data Set, Kevin Durant Data Set, Stephen Curry Data Set, Klay Thompson Data Set"
-  #output(s):
+  #title: Data Preparation
+  #description: This document contains all the R code used to create a csv data file containing the required variables that will be used in the visualisation phase."
+  #input(s): Andre Iguodala Data Set, Draymond Green Data Set, Kevin Durant Data Set, Stephen Curry Data Set, Klay Thompson Data Set"
+  #output(s): Data Frames of Each Player, Text Files of the Summaries of Each Player's Data Frames, a CSV file of a Stacked table of all Players Data, a Text File of the Summary of the Stacked table
   
     library(dplyr)
   

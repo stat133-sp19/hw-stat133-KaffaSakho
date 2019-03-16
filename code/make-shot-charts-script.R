@@ -1,7 +1,7 @@
-#title: 
+#title: Shot Charts of Players
 #description: "This file contains the charts that will be used in the report."
-#inputs: 
-#outputs:
+#inputs: Image of the NBA Court, CSV files of Each Players' data,
+#outputs: Data Frames of Each Player, Aggregated Data Frames of all Players in one Data Frame, Shot Charts for Each Player, Single Facetted Shot Chart of all Players
   
   #4.1) Shot Charts of Each Player
   
