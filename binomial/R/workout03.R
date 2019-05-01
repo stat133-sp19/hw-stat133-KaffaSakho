@@ -1,7 +1,7 @@
----
-  title: "workout03-kaffa-sakho"
-output: html_document
----
+#---
+#  title: "workout03-kaffa-sakho"
+#output: html_document
+#---
   
   #1) R Funtions
 
@@ -233,7 +233,7 @@ bin_variable <- function (trials,prob) {
 #stuck on the description part 
 
 
-Methods 
+#Methods 
 
 
 #' @export 
