@@ -123,12 +123,7 @@ aux_kurtosis <- function(trials, prob) {
 bin_choose <- function(n,k) {
   check_trials(n) #doesn't this make the function end here?
   check_success(n,k)
-  if (length(k)==1) {
-    k_successes <- factorial(n)/(factorial(k)*factorial(n-k))
-  }
-  else {
-    k_successes <- factorial(n)/(factorial(k)*factorial(n-k))
-  }
+  k_successes <- factorial(n)/(factorial(k)*factorial(n-k))
   k_successes
 }
 
@@ -353,7 +348,7 @@ bin_kurtosis <- function(trials,prob) {
   check_prob(prob)
   aux_kurtosis(trials,prob)
 }
-#include test functions? 
+
 #include roxygen comments?
 
 
