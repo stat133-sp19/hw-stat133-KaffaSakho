@@ -1,11 +1,10 @@
 Package: binomial
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Binomial Distribution
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Author: Kaffa Sakho
+Maintainer: Kaffa Sakho <adjaratou.sakho@berkeley.edu>
+Description: provides functions to compute and graph probabilities of a binomial variable and related calculations such as the mean, the variance, the mode, the skewness and the kurtosis.
+License: GPL-2
 Encoding: UTF-8
 LazyData: true
