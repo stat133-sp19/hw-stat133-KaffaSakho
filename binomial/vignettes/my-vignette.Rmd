@@ -1,0 +1,54 @@
+---
+title: "The Binomial Distribution of a Random Variable"
+author: "Kaffa Sakho"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{my-vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(binomial)
+```
+
+## *Binomial Distribution* 
+
+The package **"binomial"** is a set of functions that allow the computation and visualization of probabilities and other statistical measures of a **binomial random variable**.
+
+The content of this guide for the binomial package is as follows: 
+
+### 1. Creating a Binomial Random Variable Object: bin_var()
+
+A binomial random variable is a discrete random variable that determines the number of times a specific event occurs in a given number of trials. Therefore, to construct a random variable we need to know the number of trials and the probability of success of the event we are interested in. We use the function bin_var() as follows: 
+
+##### Methods of bin.var()
+
+We can extract information about a random variable object by using print.binvar(), summary.binvar() or print.summary.binvar().
+
+ **print.binvar()** prints 
+2. Calculations on a random variable(mean,variance,mode,skewness,kurtosis)
+3. find title for bin_choose()
+4. Computing the Probabilities 
+- explain what this means
+- include the code 
+5. Computing the distributi ons (both normal and cumulative)
+- explain what they mean
+- include the code
+6. Visualizing Distributions of a Binomial Random Variable
+- explain plot.bindis
+- include graph
+- explain plot.bincum
+- include graph
+
+## *Creating a Binomial Random Variable*
+
+First, we need to create a random variable. define what a binomial ra
