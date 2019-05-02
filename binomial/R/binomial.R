@@ -13,6 +13,8 @@
 #Param: prob a number between 0 and 1 with 0 and 1 included, for example: 0.4
 #Return: returns TRUE if the proability is a correct probability i.e a number between 0 and 1 included; and returns an error message otherwise.
 
+library(dplyr)
+
 check_prob <- function (prob) {
   if (prob <= 1 & prob >= 0) {
     return(TRUE)
@@ -42,11 +44,11 @@ check_trials <- function (trials) {
 #Return: returns TRUE if success is both a vector of non-negative integers that are all less than trials and the length of success is less than or equal to trials. It returns an error message if success>trials or any other condition mentioned previously is not met.
 
 check_success <- function (success,trials) {
-  if (all(success>0) & all(round(success)==success) & all(success<=trials)) { #verify the last "&"
-    if (i>0 & round(i)==success) # add check_trials() to the condition?
+  if (all(success>=0) & all(round(success)==success) & all(success<=trials)) { #verify the last "&"
+
       return(TRUE)
   }
-  else if (success>trials) {
+  else if (sum(success>trials)<length(success)) {
     stop("success cannot be greater than trials")
   }
   stop("Invalid Success Value")
@@ -122,7 +124,7 @@ aux_kurtosis <- function(trials, prob) {
 
 bin_choose <- function(n,k) {
   check_trials(n) #doesn't this make the function end here?
-  check_success(n,k)
+  check_success(k,n)
   k_successes <- factorial(n)/(factorial(k)*factorial(n-k))
   k_successes
 }
@@ -349,7 +351,6 @@ bin_kurtosis <- function(trials,prob) {
   aux_kurtosis(trials,prob)
 }
 
-#include roxygen comments?
 
 
 
