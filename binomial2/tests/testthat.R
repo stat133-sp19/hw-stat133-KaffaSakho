@@ -1,4 +1,4 @@
 library(testthat)
-library(cointoss)
+library(binomial2)
 
-test_check("cointoss")
+test_check("binomial2")
