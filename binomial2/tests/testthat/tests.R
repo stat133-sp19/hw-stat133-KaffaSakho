@@ -1,7 +1,6 @@
 
 library("testthat")
-source("R/workout03.R")
-
+source("R/binomial2.R")
 
 test_that("check_prob handles a number between 0 and 1 included",{
   prob1 <- 0.7
