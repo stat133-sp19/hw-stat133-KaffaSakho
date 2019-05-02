@@ -7,4 +7,5 @@ Maintainer: Kaffa Sakho <adjaratou.sakho@berkeley.edu>
 Description: provides functions to compute and graph probabilities of a binomial variable and related calculations such as the mean, the variance, the mode, the skewness and the kurtosis.
 License: GPL-2
 Encoding: UTF-8
-LazyData: true \
+LazyData: true 
+
