@@ -199,10 +199,7 @@ plot.bindis <- function(distrib1) {
 #' @description calculates and stores in a data frame the probabilities of getting different number of successes in a given number of trials and the cumulative probabilities
 #' @param trials the number of trials, a non-negative integer
 #' @param prob the probability of success, a number between 0 and 1 both included
-#' @return a data frame of primary class bincum and secondary class data.frame with the following elements
-#' @return \item{success}{vector of the numbers of success}
-#' @return \item{probability}{the probability of obtaining the indicated number of successes in the indicated number of trials}
-#' @return \item{cumulative probabilitites}{the cumulative probabilities}
+#' @return a data frame of primary class bincum and secondary class data.frame with the following columns: success, probability and cumulative probability
 #' @export
 #' @examples
 #' # the distribution of a random variable in 4 trials and probability of success 0.2
@@ -327,7 +324,7 @@ bin_mean <- function(trials,prob) {
 #' @description computes the variance of a random variable under a given number of trials and a given probability of success per trial
 #' @param trials the number of trials, a non-negative integer
 #' @param prob the probability of success, a number between 0 and 1 both included
-#' @return
+#' @return the variance of a random variable
 #' @export
 #' @examples
 #' # the variance of a random variable in 5 trials and probability of success 0.4

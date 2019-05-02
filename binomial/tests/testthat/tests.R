@@ -1,5 +1,4 @@
 library("testthat")
-source("R/binomial.R")
 
 test_that("check_prob handles a number between 0 and 1 included",{
   prob1 <- 0.7
@@ -43,34 +42,60 @@ test_that("aux_mean works with normal input", {
 
 test_that("aux_variance works with normal input", {
   trials1 <- 10
-  prob <- 0.3
-  var <- trials1*prob*(1-prob)
+  prob1 <- 0.3
+  var1 <- trials1*prob1*(1-prob1)
+  trials2 <- 75
+  prob2 <- 7
+  var2 <- trials2*prob2*(1-prob2)
+  var3 <- trials1*prob2*(1-prob2)
 
-  expect_equal(aux_variance(trials1,prob), var)
+  expect_equal(aux_variance(trials1,prob1), var1)
+  expect_equal(aux_variance(trials2,prob2), var2)
+  expect_equal(aux_variance(trials1,prob2), var3)
+
 })
 
 test_that("aux_mode works with normal input", {
   trials1 <- 10
-  prob <- 0.3
-  mod <- floor((trials1*prob) + prob)
+  prob1 <- 0.3
+  mod1 <- floor((trials1*prob1) + prob1)
+  trials2 <- 98
+  prob2 <- 0.5
+  mod2 <- floor((trials2*prob2) + prob2)
+  mod3 <- floor((trials2*prob1) + prob1)
 
-  expect_equal(aux_mode(trials1,prob), mod)
+  expect_equal(aux_mode(trials1,prob1), mod1)
+  expect_equal(aux_mode(trials2,prob2), mod2)
+  expect_equal(aux_mode(trials2,prob1), mod3)
+
 })
 
 test_that("aux_skewness works with normal input", {
   trials1 <- 10
-  prob <- 0.3
-  skew <- (1-2*prob)/sqrt(trials1*prob*(1-prob))
+  prob1 <- 0.3
+  skew1 <- (1-2*prob1)/sqrt(trials1*prob1*(1-prob1))
+  trials2 <- 98
+  prob2 <- 0.5
+  skew2 <- (1-2*prob2)/sqrt(trials2*prob2*(1-prob2))
+  skew3 <- (1-2*prob1)/sqrt(trials2*prob1*(1-prob1))
 
-  expect_equal(aux_skewness(trials1,prob), skew)
+  expect_equal(aux_skewness(trials1,prob1), skew1)
+  expect_equal(aux_skewness(trials2,prob2), skew2)
+  expect_equal(aux_skewness(trials2,prob1), skew3)
 })
 
 test_that("aux_kurtosis works with normal input", {
   trials1 <- 10
-  prob <- 0.3
-  kurt <- (1-6*prob*(1-prob))/(trials1*prob*(1-prob))
+  prob1 <- 0.3
+  kurt1 <- (1-6*prob1*(1-prob1))/(trials1*prob1*(1-prob1))
+  trials2 <- 98
+  prob2 <- 0.5
+  kurt2 <- (1-6*prob2*(1-prob2))/(trials2*prob2*(1-prob2))
+  kurt3 <- (1-6*prob2*(1-prob2))/(trials1*prob2*(1-prob2))
 
-  expect_equal(aux_kurtosis(trials1,prob), kurt)
+  expect_equal(aux_kurtosis(trials1,prob1), kurt1)
+  expect_equal(aux_kurtosis(trials2,prob2), kurt2)
+  expect_equal(aux_kurtosis(trials1,prob2), kurt3)
 })
 
 test_that("bin_choose handles correct input values and works with normal inputs", {
