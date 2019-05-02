@@ -81,7 +81,7 @@ aux_variance <- function(trials, prob) {
 
 
 #Title: mode of a binomial distribution
-#Description: calculates the mode of a binomial distribution, which is the most likely number of success in a given number of independent trials rounded to the greatest integer less than or equal to it.
+#Description: calculates the mode of a random variable, which is the most likely number of success in a given number of independent trials rounded to the greatest integer less than or equal to it.
 #Param: trials number of trials, prob the probability of success in one trial. trials is a non-negative integer (e.g: 5) and prob is a number between 0 and 1 included (eg 0.6).
 #Return: returns the calculated mode of a binomial distribution. The output is a non-negative integer.
 
@@ -92,7 +92,7 @@ aux_mode <- function(trials, prob) {
 
 
 #Title: skewness of a binomial distribution
-#Description: calculates the skewness of a binomial distribution, which measures the asymmetry of the probability distribution of a random variable about its mean.
+#Description: calculates the skewness of the probability distribution of a random variable, which measures the asymmetry of the probability distribution of a random variable about its mean
 #Param: trials number of trials, prob the probability of success in one trial. trials is a non-negative integer (e.g: 5) and prob is a number between 0 and 1 included (eg 0.6).
 #Return: returns the calculated skewness of a binomial distribution; the output can either be  positive, negative or undefined
 
@@ -103,7 +103,7 @@ aux_skewness <- function(trials, prob) {
 
 
 #Title: kurtosis of a binomial distribution
-#Description: calculates the kurtosis of a binomial distribution, which measures the tailedness of the probability distribution of random variable.
+#Description: calculates the kurtosis of the probability distribution of a random variable, which measures the tailedness of the probability distribution of random variable.
 #Param: trials number of trials, prob the probability of success in one trial. trials is a non-negative integer (e.g: 5) and prob is a number between 0 and 1 included (eg 0.6).
 #Return: returns the calculated kurtosis of a binomial distribution. The output can be positive, negative or 0.
 
@@ -121,9 +121,14 @@ aux_kurtosis <- function(trials, prob) {
 #' @return computed number of possible combinations in which k successes can occur in n trials
 #' @export
 #' @examples
+#' # the number of possible combinations of 3 successes in 5 trials
+#' bin_choose(5,3)
+#'
+#' # the number of 7 successes in 12 trials
+#' bin_choose(12,7)
 
 bin_choose <- function(n,k) {
-  check_trials(n) #doesn't this make the function end here?
+  check_trials(n)
   check_success(k,n)
   k_successes <- factorial(n)/(factorial(k)*factorial(n-k))
   k_successes
@@ -135,7 +140,7 @@ bin_choose <- function(n,k) {
 
 #1.4) Function bin_probability()
 
-#' @title probability of a number of successes in a number of trials
+#' @title Probability of a given number of success
 #' @description calculates the probability of getting a given number of successes in a given number of trials
 #' @param success
 #' @param trials
@@ -143,6 +148,11 @@ bin_choose <- function(n,k) {
 #' @return the calculated probability of getting success number of successes in trials number of trials
 #' @export
 #' @examples
+#' # the probability of obtaining 2 successes in 7 trials with success probability of 0.3 per trial
+#' bin_probability(2,7,0.3)
+#'
+#' # the probability of obtaining no successes in 4 trials with success probability of 0.8 per trial
+#'bin_probability(0,4,0.8)
 
 bin_probability <- function(success,trials,prob) {
   check_trials(trials) #is this the correct way to invok it ?
@@ -155,23 +165,25 @@ bin_probability <- function(success,trials,prob) {
 
 #1.5) Function bin_distribution
 
-#' @title probability distribution of a random variable in a given number of trials under a given probability
+#' @title Binomial Distribution
 #' @description calculates and stores in a data frame the probabilities of getting different number of successes in a given number of trials
 #' @param trials the number of trials, a non-negative integer
-#' @param prob the probability of success, a number between 0 and 1 both included.
+#' @param prob the probability of success, a number between 0 and 1 both included
 #' @return a data frame of primary class bindis and secondary class data.frame with two columns and that contains the probabilities of getting different numbers of successes under a given number of trials
 #' @export
 #' @examples
+#' # the binomial distribution of a random variable in 11 trials and probability of success of 0.42 per trial
+#' bin_distribution(11,0.42)
+#'
+#'  # the binomial distribution of a random variable in 3 trials and probability of success of 0.8 per trial
+#' bin_distribution(3,0.8)
 
 bin_distribution <- function(trials, prob) {
   df <- data.frame(success=0:trials, probability=bin_probability(0:trials,trials,prob))
   class(df) <- c("bindis", "data.frame")
   df
 }
-#can roxygen comments include punctuation?
 
-
-#Function plot.bindis #check if this is correct
 
 #' @export
 
@@ -183,13 +195,21 @@ plot.bindis <- function(distrib1) {
 
 #1.6) Function bin_cumulative()
 
-#' @title binomial probability distribution and cumulative distribution
+#' @title Binomial Probability Distribution and Cumulative Distribution
 #' @description calculates and stores in a data frame the probabilities of getting different number of successes in a given number of trials and the cumulative probabilities
 #' @param trials the number of trials, a non-negative integer
-#' @param prob the probability of success, a number between 0 and 1 both included.
-#' @return a data frame of primary class bincum and secondary class data.frame with three columns and that contains the probabilities of getting different numbers of successes under a given number of trials and the cumulative probabilities
+#' @param prob the probability of success, a number between 0 and 1 both included
+#' @return a data frame of primary class bincum and secondary class data.frame with the following elements
+#' @return \item{success}{vector of the numbers of success}
+#' @return \item{probability}{the probability of obtaining the indicated number of successes in the indicated number of trials}
+#' @return \item{cumulative probabilitites}{the cumulative probabilities}
 #' @export
 #' @examples
+#' # the distribution of a random variable in 4 trials and probability of success 0.2
+#' bin_cumulative(4,0.2)
+#'
+#' # the distribution of a random variable in 60 trials and probability of success 0.6
+#' bin_cumulative(60,0.6)
 
 bin_cumulative <- function(trials,prob) {
   df_cumulative <- data.frame(success = 0:trials, probability = bin_probability(0:trials,trials,prob))
@@ -210,13 +230,18 @@ plot.bincum <- function(distrib2) {
 
 #1.7) Function bin_variable()
 
-#' @title a random variable with a given a number of trials and probability of success
-#' @description
-#' @param trials
-#' @param prob
-#' @return
+#' @title a random variable with a number of trials and a probability of success
+#' @description creates an object of class binvar
+#' @param trials the number of trials, a non-negative integer
+#' @param prob the probability of success, a number between 0 and 1 both included
+#' @return a list of class binvar and containing a numeric vector of trials and numeric vector of probability
 #' @export
 #' @examples
+#' # the binomial variable with 6 trials and probability of success 0.45
+#' bin_variable(6,0.45)
+#'
+#' # the binomial variable with 3 trials and probability of success 0.67
+#' bin_variable(3,0.67)
 
 bin_variable <- function (trials,prob) {
   check_trials(trials)
@@ -279,13 +304,18 @@ print.summary.binvar <- function(summary) {
 
 #1.8) Functions of measures
 
-#' @title
-#' @description
-#' @param trials
-#' @param prob
-#' @return the mean of the
+#' @title Expected Value
+#' @description computes the mean of a random variable under a given number of trials and a given probability of success per trial; which is the expected number of successes in a given number of trials under a given probability
+#' @param trials the number of trials, a non-negative integer
+#' @param prob the probability of success, a number between 0 and 1 both included
+#' @return the mean of the random variable under trials number of of trials and probability prob of success per trial
 #' @export
 #' @examples
+#' # the expeceted value of a random variable in 5 trials and probability of success 0.4
+#' bin_mean(5,0.4)
+#'
+#' # the expected value of a random variable in 10 trials and probability of success 0.3
+#' bin_mean(10,0.3)
 
 bin_mean <- function(trials,prob) {
   check_trials(trials)
@@ -293,13 +323,18 @@ bin_mean <- function(trials,prob) {
   aux_mean(trials,prob)
 }
 
-#' @title
-#' @description
-#' @param trials
-#' @param prob
+#' @title Variance
+#' @description computes the variance of a random variable under a given number of trials and a given probability of success per trial
+#' @param trials the number of trials, a non-negative integer
+#' @param prob the probability of success, a number between 0 and 1 both included
 #' @return
 #' @export
 #' @examples
+#' # the variance of a random variable in 5 trials and probability of success 0.4
+#' bin_variance(5,0.4)
+#'
+#' # the variance of a random variable in 10 trials and probability of success 0.3
+#' bin_variance(10,0.3)
 
 bin_variance <- function(trials,prob) {
   check_trials(trials)
@@ -308,13 +343,18 @@ bin_variance <- function(trials,prob) {
 }
 
 
-#' @title
-#' @description
-#' @param trials
-#' @param prob
-#' @return
+#' @title Mode
+#' @description computes the mode of random variable which is the most likely number of success in a given number of independent trials rounded to the greatest integer less than or equal to it
+#' @param trials the number of trials, a non-negative integer
+#' @param prob the probability of success, a number between 0 and 1 both included
+#' @return the mode of a random variable
 #' @export
 #' @examples
+#' # the mode of a random variable in 5 trials and probability of success 0.4
+#' bin_mode(5,0.4)
+#'
+#' # the mode of a random variable in 10 trials and probability of success 0.3
+#' bin_mode(10,0.3)
 
 bin_mode <- function(trials,prob) {
   check_trials(trials)
@@ -323,13 +363,18 @@ bin_mode <- function(trials,prob) {
 }
 
 
-#' @title
-#' @description
-#' @param trials
-#' @param prob
-#' @return
+#' @title Skewness
+#' @description computes the skewness of a probability distribution of a random variable which measures the asymmetry of the probability distribution of a random variable about its mean.
+#' @param trials the number of trials, a non-negative integer
+#' @param prob the probability of success, a number between 0 and 1 both included
+#' @return skewness of a probability distribution of the random variable
 #' @export
 #' @examples
+#' # the skewness of a random variable in 5 trials and probability of success 0.4
+#' bin_skewness(5,0.4)
+#'
+#' # the skewness of a random variable in 10 trials and probability of success 0.3
+#' bin_skewness(10,0.3)
 
 bin_skewness <- function(trials,prob) {
   check_trials(trials)
@@ -337,13 +382,18 @@ bin_skewness <- function(trials,prob) {
   aux_skewness(trials,prob)
 }
 
-#' @title
-#' @description
-#' @param trials
-#' @param prob
-#' @return
+#' @title Kurtosis
+#' @description computes the kurtosis of a probability distribution of a random variable, which measures the tailedness of the probability distribution of random variable.
+#' @param trials the number of trials, a non-negative integer
+#' @param prob the probability of success, a number between 0 and 1 both included
+#' @return kurtosis of a probability distribution of the random variable
 #' @export
 #' @examples
+#' # the kurtosis of a random variable in 5 trials and probability of success 0.4
+#' bin_kurtosis(5,0.4)
+#'
+#' # the mode of a random variable in 10 trials and probability of success 0.3
+#' bin_kurtosis(10,0.3)
 
 bin_kurtosis <- function(trials,prob) {
   check_trials(trials)
