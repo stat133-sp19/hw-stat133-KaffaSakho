@@ -59,13 +59,13 @@ print(X)
 We use summary.binvar() to get a comprehensive summary of our binomial object X. summary() takes as argument an object of class "binvar"
 
 ```{r}
-#summary1 <- summary(X)
-#summary1
+summary1 <- summary(X)
+summary1
 ```
 
 print.summary.binvar() prints the summary of our binomial random variable. Here print takes an object of class "summary.binvar" as input.
 ```{r}
-#print(summary1)
+print(summary1)
 ```
 
 ### 1. Measures of a binomial random variable
@@ -193,7 +193,7 @@ bin_cumulative takes in two arguments:
 cumulative.table <- bin_cumulative(n,p)
 cumulative.table
 ```
-The output is a data frame that shows in the 2nd column the probabilities of obtaining k successes in n trials and in the 3rd column the probabilities of obtaining less or equal to k successes in n trials for any 0<k<n #change this into a math formula. This data frame has primary class "bincum".
+The output is a data frame that shows in the 2nd column the probabilities of obtaining k successes in n trials and in the 3rd column the probabilities of obtaining less or equal to k successes in n trials for any $0<k<n$ (change this into a math formula). This data frame has primary class "bincum".
 
 Moreover, we can visualize the cumulative probability distribution of a random variable using plot. Here, plot takes an argument of class "bincum".
 
