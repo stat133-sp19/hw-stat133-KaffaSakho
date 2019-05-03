@@ -275,7 +275,9 @@ summary.binvar <- function(variable) {
                       "mode" = aux_mode(variable[['trials']],variable[['prob']]),
                       "skewness"= aux_skewness(variable[['trials']],variable[['prob']]),
                       "kurtosis"= aux_kurtosis(variable[['trials']],variable[['prob']])
+
   )
+  class(output_list) <- "summary.binvar"
   output_list
 }
 
@@ -285,7 +287,7 @@ print.summary.binvar <- function(summary) {
   cat('"Summary Binomial"')
   cat("\n\n")
   cat("Parameters")
-  cat("\n", "- number of trials: ", summary[['trials']])
+  cat("\n", "- number of trials: ", summary$trials)
   cat("\n", "- prob of success: ", summary[['prob']])
   cat("\n\n")
   cat("Measures")

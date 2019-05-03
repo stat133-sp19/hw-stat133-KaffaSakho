@@ -41,7 +41,7 @@ The content of this guide for the binomial package is as follows:
 A binomial random variable is a discrete random variable that determines the number of times a specific event occurs in a given number of trials. Therefore, to construct a random variable we need to know the number of trials and the probability of success of the event we are interested in. To create it, we use the function bin_variable() as follows: 
 
 ```{r}
-n <- 5 # the number of trials
+n <- 43 # the number of trials
 p <- 0.4 # the probability of success per trial
 X <- bin_variable(n,p) # calling our random variable X
 ```
@@ -60,15 +60,16 @@ print.binvar(X)
 We use summary.binvar() to get a comprehensive summary of our binomial object X
 
 ```{r}
-summary(X)
+summary <- summary(X)
+summary
 ```
 
 print.summary.binvar() prints the summary of our binomial random variable
 ```{r}
-print.summary.binvar(X)
+print.summary.binvar(summary)
 ```
 
-### 1. Calculations on a binomial random variable
+### 1. Measures of a binomial random variable
 
 The mean of a binomial random variable is the expected number of successes in a given number of trials. We calculate the mean of our binomial object as follows:
 
@@ -99,7 +100,11 @@ bin_kurtosis(n,p)
 ### 3. Different Combinations of k Successes in n Trials
 
 To calculate the different number of ways to obtain k successes in n trials we use bin_choose()
-
+```{r}
+k <- 37
+bin_choose(n,k)
+```
+This means there are **6096454** ways of obtaining 37 successes in 43 trials. 
 
 
 
