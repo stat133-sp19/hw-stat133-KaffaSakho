@@ -188,7 +188,7 @@ bin_distribution <- function(trials, prob) {
 #' @export
 
 plot.bindis <- function(distrib1) {
-  barplot(distrib1[,2], names.arg=distrib1[,1], xlab= "successes", ylab="probability")
+  barplot(distrib1[,2], names.arg=distrib1[,1], xlab= "successes", ylab="probability", main = "Probability Distribution",col="purple2")
 }
 
 
@@ -221,7 +221,7 @@ bin_cumulative <- function(trials,prob) {
 #' @export
 
 plot.bincum <- function(distrib2) {
-  plot(distrib2[,1], distrib2[,3])
+  plot(distrib2[,1], distrib2[,3], xlab = "successes", ylab = "probability", main = "Cumulative Distribution", col="purple")
   lines(distrib2[,1], distrib2[,3])
 }
 

@@ -24,52 +24,54 @@ library(binomial)
 
 The package **"binomial"** is a set of functions that allow the computation and visualization of probabilities and other statistical measures of a **binomial random variable**.
 
-The content of this guide for the binomial package is as follows:
+The content of this guide for the binomial package is as follows:\
 1. Creating a Binomial Random Variable Object
-2. Calculations on a random variable(mean,variance,mode,skewness,kurtosis)
+2. Measures on a Random Variable
 3. Different Combinations of k Successes in n Trials
 4. Computing the Probabilities explain what this means include the code 
-5.  Computing the distributi ons (both normal and cumulative) explain what they mean include the code
+5. Computing the distributi ons (both normal and cumulative) explain what they mean include the code
 6. Visualizing Distributions of a Binomial Random Variable
-- explain plot.bindis
-- include graph
-- explain plot.bincum
-- include graph
 
-### 1. Creating a Binomial Random Variable Object: bin_variable()
+
+### 1. Creating a Binomial Random Variable Object: bin_variable
 
 A binomial random variable is a discrete random variable that determines the number of times a specific event occurs in a given number of trials. Therefore, to construct a random variable we need to know the number of trials and the probability of success of the event we are interested in. To create it, we use the function bin_variable() as follows: 
 
 ```{r}
-n <- 43 # the number of trials
+n <- 12 # the number of trials
 p <- 0.4 # the probability of success per trial
 X <- bin_variable(n,p) # calling our random variable X
 ```
 
+X is an object of class "binvar".
 
-##### Methods of bin.variable()
+##### Methods of bin.variable
 
-We can extract information about a random variable object by using methods like print.binvar(), summary.binvar() or print.summary.binvar() 
+We can extract information about a random variable object by using methods like print(), summary() or print() 
 
-print.binvar() prints the content of our binomial object X. 
+print() prints the content of our binomial object X. 
 
 ```{r}
-print.binvar(X)
+print(X)
 ```
 
-We use summary.binvar() to get a comprehensive summary of our binomial object X
+We use summary.binvar() to get a comprehensive summary of our binomial object X. summary() takes as argument an object of class "binvar"
 
 ```{r}
 summary <- summary(X)
 summary
 ```
 
-print.summary.binvar() prints the summary of our binomial random variable
+print.summary.binvar() prints the summary of our binomial random variable. Here print takes an object of class "summary.binvar" as input.
 ```{r}
-print.summary.binvar(summary)
+print(summary)
 ```
 
 ### 1. Measures of a binomial random variable
+
+All below mentionned binomial random variable functions of measures take two inputs:
+**n** is the number of trials.
+**p** is the probability of succcess per trial.
 
 The mean of a binomial random variable is the expected number of successes in a given number of trials. We calculate the mean of our binomial object as follows:
 
@@ -97,14 +99,107 @@ The kurtosis of a probability distribution of a random variable measures the tai
 bin_kurtosis(n,p)
 ```
 
-### 3. Different Combinations of k Successes in n Trials
+### 3. Different Combinations of k Successes in n Trials: bin_choose
 
-To calculate the different number of ways to obtain k successes in n trials we use bin_choose()
+**Description**
+
+To calculate the different number of ways to obtain k successes in n trials we use bin_choose(). 
+
+**Arguments** 
+
+bin_choose(n,k) takes two arguments: 
+**n** is the number of trials
+**k** is the number of successes. k cannot be greater than the number of successes. If k>n bin_choose will raise an error.
+
+**Value**
+
+The output value is a non-negative integer. 
+
+**Example**
+
 ```{r}
-k <- 37
+k <- 4
 bin_choose(n,k)
 ```
 This means there are **6096454** ways of obtaining 37 successes in 43 trials. 
+
+### 4. Computing the Probability of Successes: bin_probability
+
+*Description*
+After finding the different number of combinations, we can find the probability of obtaining k successes in n trials by using bin_probability().
+
+*Arguments*
+
+bin_probability(k,n,p) takes three arguments: 
+**k** is the number of successes. k cannot be greater than the number of successes. If k>n bin_choose will raise an error.
+**n** is the number of trials.
+**p** is the probability of a success in one trial.
+
+*Value*
+
+The output value is a number between 0 and 1 both included.
+
+*Example*
+
+```{r}
+bin_probability(k,n,p)
+```
+
+### 5. Distribution of a Random Variable
+
+**Distribution**
+
+*Description*
+
+The distribution of a random variable shows the different probability values across different possible number of successes under a given number of trials. 
+
+*Arguments* 
+
+bin_distribution takes in two arguments: 
+**n** the number of trials.\
+**p** the probability of success per trial.
+
+*Example*
+
+```{r}
+distribution.table <- bin_distribution(n,p)
+distribution.table
+```
+The output is a data frame with two columns. The first column shows the number of possible successes in n trials, and the second column shows the probability of obtaining that number of successes in n trials. This data frame has primary class "bindis".
+
+We can graph the probability distribution using plot(). Here plot takes an object of class "bindis".
+
+```{r}
+plot(distribution.table)
+```
+
+
+**Cumulative Distribution** 
+
+*Description*
+
+The cumulative distribution of random variable at k successes is the probability that the number of successes is less or equal than k. We use bin_cumulative to obtain the cumulative probabilities.
+
+*Arguments*
+
+bin_cumulative takes in two arguments: 
+**n** the number of trials\
+**p** the probability of success per trial.
+
+*Example*
+
+```{r}
+cumulative.table <- bin_cumulative(n,p)
+cumulative.table
+```
+The output is a data frame that shows in the 2nd column the probabilities of obtaining k successes in n trials and in the 3rd column the probabilities of obtaining less or equal to k successes in n trials for any 0<k<n #change this into a math formula. This data frame has primary class "bincum".
+
+Moreover, we can visualize the cumulative probability distribution of a random variable using plot. Here, plot takes an argument of class "bincum".
+
+```{r}
+plot(cumulative.table)
+```
+
 
 
 
