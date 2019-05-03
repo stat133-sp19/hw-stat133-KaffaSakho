@@ -1,0 +1,52 @@
+---
+title: 
+output: github_document
+---
+
+### Overview
+
+"binomial" is a package that allows the creation and computations on a random variable. 
+
+* bin_variable() creates a random variable object of class "binvar"
+
+* print() can print the content of a binomial object.
+
+* summary() gives a comprehensive summary of a binomial object.
+
+* print() can print the content of the summary of a binomial object.
+
+* bin_mean()
+
+* bin_variance()
+
+* bin_mode()
+
+* bin_skewness()
+
+* bin_kurtosis()
+
+* bin_choose()
+
+* bin_probability()
+
+* plot() can plot either the distribution or the cumulative distribution depending on whether its input is of class "bindis" or "bincum".
+
+* bin_distribution()
+
+* bin_cumulative()
+
+
+### Motivation
+ 
+This package was created as a practice problem in R package creation. 
+ 
+### Installation
+
+\# development version from GitHub:
+\#install.packages("devtools") 
+
+\# install "cointoss" (without vignettes)
+devtools::install_github("KaffaSakho/binomial")
+
+\# install "cointoss" (with vignettes)
+devtools::install_github("KaffaSakho/binomial", build_vignettes = TRUE)
