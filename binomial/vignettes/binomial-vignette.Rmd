@@ -76,25 +76,29 @@ The mean of a binomial random variable is the expected number of successes in a 
 bin_mean(n,p)
 ```
 
-The variance of a binomial random variable is the expected number of successes in a given number of trials. We calculate the variance of our binomial object as follows:
+We calculate the variance of our binomial object as follows:
 ```{r}
-bin_var(n,p)
+bin_variance(n,p)
 ```
 
-The mode of a binomial random variable is the expected number of successes in a given number of trials. We calculate the mean of our binomial object as follows:
+The mode of a binomial random variable is the most likely number of success in a given number of independent trials rounded to the greatest integer less than or equal to it. We calculate the mode of our binomial object as follows:
 ```{r}
-
+bin_mode(n,p)
 ```
 
-The skewness of a binomial random variable is the expected number of successes in a given number of trials. We calculate the mean of our binomial object as follows:
+The skewness of a probability distribution of a random variable measures the asymmetry of the probability distribution of a random variable about its mean. We calculate the skewness of the distribution of our binomial object as follows:
 ```{r}
-
+bin_skewness(n,p)
 ```
 
-The kurtosis
+The kurtosis of a probability distribution of a random variable measures the tailedness of the probability distribution of random variable. We calculate the kurtosis as follows
 ```{r}
-
+bin_kurtosis(n,p)
 ```
+
+### 3. Different Combinations of k Successes in n Trials
+
+To calculate the different number of ways to obtain k successes in n trials we use bin_choose()
 
 
 

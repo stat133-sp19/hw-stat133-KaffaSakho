@@ -249,8 +249,6 @@ bin_variable <- function (trials,prob) {
   class(variab) <- "binvar"
   variab
 }
-#stuck on the description part
-
 
 #Methods
 
@@ -262,7 +260,7 @@ print.binvar <- function(variable) {
   cat("\n\n")
   cat("Parameters")
   cat("\n", "- number of trials: ", variable[['trials']])
-  cat("\n", "- prob of success: ", variable[['success']])
+  cat("\n", "- prob of success: ", variable[['prob']])
   invisible(variable)
 }
 
@@ -270,13 +268,13 @@ print.binvar <- function(variable) {
 #' @export
 
 summary.binvar <- function(variable) {
-  output_list <- list("trials" = variable[[trials]],
-                      "prob" = variable[[prob]],
-                      "mean" = aux_mean(variable[[trials]],variable[[prob]]),
-                      "variance" = aux_variance(variable[[trials]],variable[[prob]]),
-                      "mode" = aux_mode(variable[[trials]],variable[[prob]]),
-                      "skewness"= aux_skewness(variable[[trials]],variable[[prob]]),
-                      "kurtosis"= aux_kurtosis(variable[[trials]],variable[[prob]])
+  output_list <- list("trials" = variable[['trials']],
+                      "prob" = variable[['prob']],
+                      "mean" = aux_mean(variable[['trials']],variable[['prob']]),
+                      "variance" = aux_variance(variable[['trials']],variable[['prob']]),
+                      "mode" = aux_mode(variable[['trials']],variable[['prob']]),
+                      "skewness"= aux_skewness(variable[['trials']],variable[['prob']]),
+                      "kurtosis"= aux_kurtosis(variable[['trials']],variable[['prob']])
   )
   output_list
 }
@@ -288,7 +286,7 @@ print.summary.binvar <- function(summary) {
   cat("\n\n")
   cat("Parameters")
   cat("\n", "- number of trials: ", summary[['trials']])
-  cat("\n", "- prob of success: ", summary[['success']])
+  cat("\n", "- prob of success: ", summary[['prob']])
   cat("\n\n")
   cat("Measures")
   cat("\n", "- mean: ", summary[['mean']])
