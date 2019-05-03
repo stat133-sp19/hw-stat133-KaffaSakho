@@ -25,13 +25,17 @@ library(dplyr)
 
 The package **"binomial"** is a set of functions that allow the computation and visualization of probabilities and other statistical measures of a **binomial random variable**.
 
-The content of this guide for the binomial package is as follows:\
+The content of this guide for the binomial package is as follows:
+
 1. Creating a Binomial Random Variable Object
+
 2. Measures on a Random Variable
+
 3. Different Combinations of k Successes in n Trials
+
 4. Computing the Probabilities explain what this means include the code 
-5. Computing the distributi ons (both normal and cumulative) explain what they mean include the code
-6. Visualizing Distributions of a Binomial Random Variable
+
+5. Computing & Visualizing Distributions  
 
 
 ### 1. Creating a Binomial Random Variable Object: bin_variable
@@ -48,7 +52,7 @@ X is an object of class "binvar".
 
 ##### Methods of bin.variable
 
-We can extract information about a random variable object by using methods like print(), summary() or print() 
+We can extract information about a random variable object by using methods like print() or summary().
 
 print() prints the content of our binomial object X. 
 
@@ -56,14 +60,14 @@ print() prints the content of our binomial object X.
 print(X)
 ```
 
-We use summary.binvar() to get a comprehensive summary of our binomial object X. summary() takes as argument an object of class "binvar"
+We use summary() to get a comprehensive summary of our binomial object X. Here, summary() takes as argument an object of class "binvar" and outputs an object of class "summary.binvar"
 
 ```{r}
 summary1 <- summary(X)
 summary1
 ```
 
-print.summary.binvar() prints the summary of our binomial random variable. Here print takes an object of class "summary.binvar" as input.
+print() can also print the summary of our binomial random variable when given an object of class "summary.binvar" as input.
 ```{r}
 print(summary1)
 ```
@@ -71,7 +75,9 @@ print(summary1)
 ### 1. Measures of a binomial random variable
 
 All below mentionned binomial random variable functions of measures take two inputs:
+
 **n** is the number of trials.
+
 **p** is the probability of succcess per trial.
 
 The mean of a binomial random variable is the expected number of successes in a given number of trials. We calculate the mean of our binomial object as follows:
@@ -95,7 +101,7 @@ The skewness of a probability distribution of a random variable measures the asy
 bin_skewness(n,p)
 ```
 
-The kurtosis of a probability distribution of a random variable measures the tailedness of the probability distribution of random variable. We calculate the kurtosis as follows
+The kurtosis of a probability distribution of a random variable measures the tailedness of the probability distribution of random variable. We calculate the kurtosis as follows:
 ```{r}
 bin_kurtosis(n,p)
 ```
@@ -122,7 +128,7 @@ The output value is a non-negative integer.
 k <- 4
 bin_choose(n,k)
 ```
-This means there are **6096454** ways of obtaining 37 successes in 43 trials. 
+This means there are **495** ways of obtaining 37 successes in 43 trials. 
 
 ### 4. Computing the Probability of Successes: bin_probability
 
@@ -146,7 +152,7 @@ The output value is a number between 0 and 1 both included.
 bin_probability(k,n,p)
 ```
 
-### 5. Distribution of a Random Variable
+### 5. Computing & Visualizing Distributions 
 
 **Distribution**
 
@@ -193,7 +199,7 @@ bin_cumulative takes in two arguments:
 cumulative.table <- bin_cumulative(n,p)
 cumulative.table
 ```
-The output is a data frame that shows in the 2nd column the probabilities of obtaining k successes in n trials and in the 3rd column the probabilities of obtaining less or equal to k successes in n trials for any $0<k<n$ (change this into a math formula). This data frame has primary class "bincum".
+The output is a data frame that shows in the 2nd column the probabilities of obtaining k successes in n trials and in the 3rd column the probabilities of obtaining less or equal to k successes in n trials for any $0<k<n$. This data frame has primary class "bincum".
 
 Moreover, we can visualize the cumulative probability distribution of a random variable using plot. Here, plot takes an argument of class "bincum".
 
